@@ -57,12 +57,6 @@ def query(file_path, api_url, api_token):
     # Return the output from the API
     return json.loads(response.content.decode("utf-8"))
 
-#https://www.kite.com/python/answers/how-to-iterate-through-the-contents-of-a-directory-in-python
-
-contents = pathlib.Path("./data/assignment_1").iterdir()
-for path in contents:
-    data = query(path, API_URL, API_TOKEN)
-    print(data)
 
 
 """
