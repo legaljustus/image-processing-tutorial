@@ -9,7 +9,9 @@ In this tutorial, the tool (Replit) takes care of the package installation for y
 But, in the future you may find yourself having the need to install packages.
 In that situation, you can use a package manager, such as pip (https://github.com/pypa/pip).
 """
+from importlib.resources import contents
 import json
+import pathlib
 import requests
 
 
@@ -27,8 +29,8 @@ Please do not make the API token public.
 For more information about how to use the API, see the following page:
 - https://api-inference.huggingface.co/docs/python/html/quicktour.html
 """
-API_URL = "https://api-inference.huggingface.co/models/google/vit-base-patch16-224"
-API_TOKEN = "[PLACE_HOLDER]"
+API_URL = "https://api-inference.huggingface.co/models/facebook/detr-resnet-50"
+API_TOKEN = "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"
 
 
 # Below is a reusable function for interacting with the Hugging Face API.
@@ -55,6 +57,13 @@ def query(file_path, api_url, api_token):
     # Return the output from the API
     return json.loads(response.content.decode("utf-8"))
 
+#https://www.kite.com/python/answers/how-to-iterate-through-the-contents-of-a-directory-in-python
+
+contents = pathlib.Path("./data/assignment_1").iterdir()
+for path in contents:
+    data = query(path, API_URL, API_TOKEN)
+    print(data)
+
 
 """
 # Use the Hugging Face API to ask a model to make predictions.
@@ -66,7 +75,7 @@ In this case, "data/000000039769.jpeg" is a relative path.
 This means that "000000039769.jpeg" is placed in the "data" folder.
 And the "data" folder is placed together with the main.py script in the same folder.
 """
-my_image = "data/000000039769.jpeg"
+my_image = "data/bike/1/271758547_496887881809012_1375450742634622577_n.jpg"
 data = query(my_image, API_URL, API_TOKEN)
 
 
@@ -83,7 +92,7 @@ A dictionary looks like {"key1": "value1", "key2", "value2"}, which represents p
 In this case, the first element in the array {'score': 0.937, 'label': 'Egyptian cat'} is the first prediction.
 It means that the model thinks there are Egyptian cats in the image, with 0.937 probability (which is very high).
 """
-print(data)
+print(contents)
 
 
 # Below is another resuable function for counting the number of objects in an image
