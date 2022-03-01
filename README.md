@@ -4,7 +4,7 @@ The image processing tutorial for the Machine Learning for Design course.
 
 _How to use?_
 
-- Put images (pnj, jpg, jpeg) into the data/assigment_1 folder
+- Put images (png, jpg, jpeg) into the data/assigment_1 folder
 - run `python3 ass1.py` in terminal
 - View results in the [google sheet](https://docs.google.com/spreadsheets/d/1eNxONIxV5BzQM4AHEs52vyfg-T0NGlLCnU0pS0Lup-o/edit?usp=sharing)
 
