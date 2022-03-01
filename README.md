@@ -43,3 +43,9 @@ Some things we could impove in a next itteration:
 
 - Automatically appending URLs to the entries
 - Allowing for extra image cateogirization on submitting to the model
+
+resources used:
+
+#https://www.kite.com/python/answers/how-to-iterate-through-the-contents-of-a-directory-in-python
+
+#https://www.w3schools.com/python/ref_requests_post.asp
